@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    
+    <!-- 内部脚本 script 标签可以出现多次 可以出现任何位置 -->
+    <script>
+        alert("hello js")
+    </script>
+    <!-- 外部脚本 -->
+    <script src="js/02_.js学习.js"></script>
+
+
+
+
+
+
+
+    书写语法
+    <!-- 基础语法 -->
+    区分大小写   
+    js代码每行结尾分号可有可无 但尽量加  
+
+    注释 : 单行 //  多行 /**/  ctrl sh + /
+    大括号表示代码块 {}
+
+    <!-- 输出语法 -->
+    window.alter()  弹出警告框
+    document.write() 写入html页面中
+    console.log() 控制台输出
+
+
+
+
+    变量
+
+ var(variable的缩写)来声明变量
+    var a = 20;
+    a = "张三"
+
+js是一门弱类型语言 变量可以存储不同类型的值
+变量命名
+
+字母数字下划线$ 不能以数字开头
+
+特点1 var定义的变量作用域比较大 是属于全局变量
+特点2 var定义的变量 是可以重复定义的 重复定义覆盖
+var a  = "a";
+var a = 1;
+
+
+数据类型 运算符  流程控制语句
+
+数据类型
+
+<!-- 原始数据类型  -->
+number : 整数 小数 NaN (Not a Number) 
+string : 字符串 单双引号都行
+
+boolean 布尔 true false
+null 对象为空  null类型为Object  因为null是对象的占位符
+undefined  当声明的变量未初始化时 改变量的默认值为 undefined
+
+typeof 变量名  获取变量的数据类型
+
+
+<!-- 运算符 -->
+== 比较时会进行类型转换
+=== 全等运算符 不会进行类型转换
+var a = 10;
+a == "10" true
+a === "100" false
+a === 10 true
+其余正常
+
+
+<!-- 类型转换 -->
+字符类型转换成数字
+parseInt()字符串转换成数字  如果不是数字转换成NaN  优先转换前面的字符 如果第一个字符不是数字 就转换成 NuN
+
+其他类型转换成布尔类型
+Number: 0 和 NuN转换成false 其他为true
+String: 空字符串转换成false 其他为true
+Null 和 undefined转换成false
+流程控制语句
+
+
+<!-- 流程控制 -->
+if else
+switch
+for
+while
+do while
+同java
+
+
+
+函数 
+定义方式1:
+function 函数名(参数) {
+    代码体;
+}
+定义方式2
+var 函数名 = function(参数) { }
+
+定义方式3 匿名函数
+function(参数) {}
+
+定义方式4 箭头函数
+(参数) => {}
+说明:
+形参不需要类型
+返回值不需要类型
+调用:
+函数名(实参)
+
+
+基础对象
+Array
+定义方式1 
+var 变量名 = new Array(元素列表)
+定义方式2
+var 变量名 = [元素列表]
+访问
+arr[索引]
+
+特点:
+数组长度可变 未定义的数组元素为undefined
+数组类型可变
+
+属性和方法
+属性:
+length 数组长度数量
+方法:
+forEach() 遍历数组中每个有值的元素 并调用一次传入的函数
+push()  将新元素添加到数组的末尾 并返回新的长度
+splice(删除索引位置,删除元素数量) 从数组中删除元素
+
+
+String
+
+创建方式
+var 变量名 = new String()
+var 变量名 = ""
+
+属性:
+length  字符串的长度
+方法:
+charAt()  返回在指定位置的字符
+indexOf()  检索字符串
+trim() 去除字符串两侧的空格
+substring(start,end)  提取字符串中两个指定的索引之间的字符 前闭后开
+
+
+
+JSON
+ --自定义对象--
+定义格式1
+var 对象名 = {
+    属性1: 属性1,
+    属性2: 属性2,
+    属性3: 属性3,
+    属性4: 属性4,
+    函数名称: function(形参) {
+
+    }
+}
+定义格式2
+var 对象名 = {
+    属性1: 属性1,
+    属性2: 属性2,
+    属性3: 属性3,
+    属性4: 属性4,
+    函数名称:(形参) {
+
+    }
+}
+调用:
+对象名.属性名;
+对象名.函数名();
+
+JSON - javaScript Object Notation -- javaScript对象标记法
+json文件 就是 javaScript对象标记法书写的文本
+由于其语法简单  多用于数据载体  在网络中进行传输
+
+定义
+var 变量 = '{"key1":value}'
+value 根据情况不同来确定
+1 数字 (直接写数字或浮点数)
+2 字符串 (在双引号中书写)
+3 逻辑值 (直接写true或false)
+4 数组 (在方括号中)
+5 对象 (在花括号中)
+6 null (直接写null)
+JSON字符串转换成JSON对象
+var jsObject = JSON.parse(json字符串)
+JSON对象转换成JSON字符串
+var jsStr = JSON.stringify(json对象)
+
+访问 jsObject.key  得到属性
+
+
+BOM
+Bom - Browser Object Model 浏览器对象模型 允许JavaScript与浏览器对话
+JavaScript将浏览器的各个组成部分封装成对象
+对象有:
+WIndow 浏览器窗口对象
+Navigator 浏览器对象
+Screen 屏幕对象
+History 历史记录对象
+Location 地址栏对象
+
+Window  浏览器窗口对象
+获取对象
+直接使用window 其中window可以省略
+属性
+history 历史记录对象
+location 地址栏对象
+navigator 浏览器窗口对象
+方法:
+alter() 显示一段消息和一个确认按钮的警告框
+confirm() 显示带有一段消息以及确认按钮的对话框 返回值为布尔
+setInterval(函数,周期) 按指定的周期(毫秒计算) 来调用函数或表达式 执行多次
+setTimeout() 在指定毫秒调用函数或计算表达式  执行一次
+
+地址栏对象获取
+window.location 
+属性
+href 设置或返回完整的url 
+
+
+DOM
+
+Document Object v-model 文档对象模型
+将标记语言的各个组成部分封装成对应的对象
+
+1. Document 整个文档对象
+2. Element 元素对象
+3. Attribute 属性对象
+4. Text 文本对象
+5. Comment 注释对象
+
+事件绑定
+
+方式1
+通过html标签中的事件进行绑定
+<input type="button" onclick="on()" value="按钮1">
+<script>function on() {
+    alter("点击按钮")
+}
+</script>
+方式2
+通过DOM元素属性绑定
+<input type="button" id="btn" value="按钮1">
+<script>{
+document.getElementById('btn').onclick=function(){
+    alter("点击按钮")
+}
+}
+
+</script>
+
+常见事件
+
+案例
+
+
+</head>
+<body>
+</body>
+</html>

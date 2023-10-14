@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 1 引入Axios的js文件 -->
+    <script src="js/axios-0.18.0.js"></script>
+</head>
+
+<body>
+    <input type="button" value="get" onclick="get()">
+    <input type="button" value="post" onclick="post()">
+
+</body>
+
+<script>
+    function get() {
+        //通过axios发送异步请求 -get
+        axios({
+            method: "get",
+            url: "https://mock.apifox.cn/m1/3128855-0-default/emp/list"
+        }).then((result) => {
+            console.log(result.data)
+        })
+        // //简化
+        // axios.get("https://mock.apifox.cn/m1/3128855-0-default/emp/list").then((result) => {
+        //     console.log(result.data)
+        // })
+
+        //通过axios发送异步请求 - post
+    }
+
+    function post() {
+            axios({
+                method: "post",
+                url: "https://mock.apifox.cn/m1/3128855-0-default/emp/deleteById",
+                data: "id=1"
+            }).then(result => {
+                console.log(result.data)
+            })
+        }
+        // //简化
+        // axios.post("https://mock.apifox.cn/m1/3128855-0-default/emp/deleteById", "id=1").then((result) => {
+        //     console.log(result.data)
+        // })
+</script>
+
+</html>

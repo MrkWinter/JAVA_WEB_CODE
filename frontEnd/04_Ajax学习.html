@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="获取数据" onclick="getData()">
+    <div id="divl"></div>
+</body>
+    <script>
+        function getData() {
+            //创建对象
+            var XML = new XMLHttpRequest();
+            //发送请求
+            XML.open('GET','https://mock.apifox.cn/m1/3128855-0-default/emp/list');
+            XML.send();
+            //获取服务器对应数据
+            XML.onreadystatechange = function() {
+                if(XML.readyState == 4 && XML.status == 200) {
+                    document.getElementById('divl').innerHTML = XML.responseText;
+                }
+            }
+        }
+    </script>
+</html>
+
+
+
+

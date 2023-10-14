@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 引入vue文件 - 基于DOM封装操作文档对象的框架
+    引入Axios的js文件 - 基于Ajax封装的异步请求服务器数据技术 -->
+    <script src="js/vue.js"></script>
+    <script src="js/axios-0.18.0.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <table border="1" cellspacing="0" width="60%" align="center">
+            <tr>
+                <th>编号</th>
+                <th>姓名</th>
+                <th>照片</th>
+                <th>性别</th>
+                <th>职务</th>
+                <th>入职时间</th>
+                <th>更新时间</th>
+            </tr>
+            <!-- //这里获取每一个emp对象 -->
+            <tr v-for="(emp,index) in emps" align="center">
+                <!-- 插值表达式 -->
+                <td>{{index}}</td>
+                <td>{{emp.name}}</td>
+                <td>
+                    <img v-bind:src="emp.image" width="70px" height="50px">
+                </td>
+                <td>
+                    <span v-if="emp.gender == 1">男</span>
+                    <span v-if="emp.gender == 2">女</span>
+                </td>
+                <td>{{emp.job}}</td>
+                <td>{{emp.entrydate}}</td>
+                <td>{{emp.updatetime}}</td>
+            </tr>
+        </table>
+    </div>
+</body>
+<script>
+    //使用Vue对象操作文档对象
+    new new Vue({
+        el: "#app",
+        data: {
+            emps: [],
+        },
+        //钩子方法 自动加载执行
+        mounted() {
+            axios.get("https://mock.apifox.cn/m1/3128855-0-default/emp/list").then((result) => {
+                //result 封装了返回的结果 这里将结果中的data对象数组赋给数据对象emp
+                this.emps = result.data.data
+            })
+        },
+    })
+</script>
+
+</html>

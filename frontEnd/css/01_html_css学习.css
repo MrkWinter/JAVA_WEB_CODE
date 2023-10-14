@@ -1,0 +1,27 @@
+h1 {
+    color: #505155;
+}
+
+.cls {
+    color: #adbad1;
+    font-size: 13px;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+p {
+    text-indent: 20px;
+    line-height: 20px;
+}
+
+.plast {
+    text-align: right;
+}
+
+.center {
+    width: 65%;
+    margin: 0 auto;
+}
